@@ -1,0 +1,95 @@
+{
+  "apis": {
+    "hubspot": {
+      "name": "HubSpot",
+      "rateLimit": {
+        "requests_per_second": 10,
+        "daily_limit": 1000000,
+        "burst_limit": 100
+      },
+      "recommendedBatchSize": 100,
+      "documentation": "https://developers.hubspot.com/docs/api/usage/limits",
+      "costModel": "per-api-call",
+      "costPer1000Calls": 0
+    },
+    "slack": {
+      "name": "Slack",
+      "rateLimit": {
+        "requests_per_second": 1,
+        "tier_1_requests_per_minute": 60,
+        "tier_2_requests_per_minute": 20,
+        "tier_3_requests_per_minute": 50
+      },
+      "recommendedBatchSize": 1,
+      "documentation": "https://api.slack.com/docs/rate-limits",
+      "costModel": "free",
+      "costPer1000Calls": 0
+    },
+    "gcpBigQuery": {
+      "name": "Google Cloud BigQuery",
+      "rateLimit": {
+        "concurrent_jobs": 6000,
+        "daily_query_limit_tb": "Project default (usually 6TB/day)",
+        "batch_size_max_rows": 100000
+      },
+      "recommendedBatchSize": 10000,
+      "documentation": "https://cloud.google.com/bigquery/quotas",
+      "costModel": "per-query-data-scanned",
+      "costPer1TBScanned": 6.25
+    },
+    "airtable": {
+      "name": "Airtable",
+      "rateLimit": {
+        "requests_per_second": 5,
+        "burst_limit": 30
+      },
+      "recommendedBatchSize": 10,
+      "documentation": "https://airtable.com/developers/web/api/rate-limits",
+      "costModel": "per-record-modification",
+      "costPer1000Records": 0
+    },
+    "salesforce": {
+      "name": "Salesforce",
+      "rateLimit": {
+        "api_calls_per_day": 100000,
+        "concurrent_calls": 40
+      },
+      "recommendedBatchSize": 1000,
+      "documentation": "https://developer.salesforce.com/docs/api-limits",
+      "costModel": "included-in-license",
+      "costPer1000Calls": 0
+    },
+    "awsS3": {
+      "name": "AWS S3",
+      "rateLimit": {
+        "put_get_head_requests_per_second": 3500,
+        "delete_requests_per_second": 3500
+      },
+      "recommendedBatchSize": 1000,
+      "documentation": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/performance-tuning.html",
+      "costModel": "per-request-and-storage",
+      "costPerMillionRequests": 0.4
+    },
+    "twillio": {
+      "name": "Twilio",
+      "rateLimit": {
+        "concurrent_connections": 1000,
+        "requests_per_second": null
+      },
+      "recommendedBatchSize": 100,
+      "documentation": "https://www.twilio.com/docs/usage/limits",
+      "costModel": "per-message",
+      "costPerSMS": 0.0075
+    },
+    "stripe": {
+      "name": "Stripe",
+      "rateLimit": {
+        "requests_per_second": 100
+      },
+      "recommendedBatchSize": 100,
+      "documentation": "https://stripe.com/docs/rate-limits",
+      "costModel": "transaction-fee",
+      "costPercentage": 2.9
+    }
+  }
+}
