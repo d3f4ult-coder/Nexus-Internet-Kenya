@@ -9,7 +9,7 @@ export function loadApiSpecs(): ApiSpecs {
     const raw = fs.readFileSync(configPath, 'utf8');
     return JSON.parse(raw) as ApiSpecs;
   } catch (error: any) {
-    console.error(chalk.red(`Failed to load API specs: ${error.message}`));
-    process.exit(1);
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Failed to load API specs: ${message}`);
   }
 }
